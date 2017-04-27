@@ -4,13 +4,7 @@
   "description": "Example app for Apollo",
   "scripts": {
     "start": "babel-node api/index.js",
-    "dev": "nodemon api/index.js --watch api --exec babel-node",
-    "lint": "eslint api migrations seeds",
-    "test": "jest && npm run lint",
-    "test:watch": "jest --watch",
-    "seed": "knex seed:run",
-    "migrate": "knex migrate:latest",
-    "test:setup": "rm test.sqlite3 || true; knex migrate:latest --env test && knex seed:run --env test"
+    "dev": "nodemon api/index.js --watch api --exec babel-node"
   },
   "private": true,
   "repository": {
@@ -57,6 +51,7 @@
     "graphql-tools": "^0.11.0",
     "knex": "0.12.9",
     "lodash": "4.17.4",
+    "mongodb": "^2.2.26",
     "optics-agent": "^1.0.5",
     "passport": "0.3.2",
     "passport-github": "1.1.0",
