@@ -47,7 +47,6 @@ export function run({
   }
 
   app.use('/graphql', graphqlExpress((req) => {
-    console.log("-------------------req",req);
     return {schema};    
   }));
 
