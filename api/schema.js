@@ -9,6 +9,7 @@ import {
   GraphQLObjectType,
   GraphQLList,
   GraphQLString,
+  GraphQLNonNull,
   GraphQLSchema
 } from'graphql'
 
@@ -63,9 +64,27 @@ const Query = new GraphQLObjectType({
   })
 })
 
+const Mutation = new GraphQLObjectType({
+  name:'UserMutation',
+  description:"user mutation",
+  fields:()=>({
+    loginVerification:{
+      type:User,
+      args:{
+        username: {type: new GraphQLNonNull(GraphQLString)},
+        password: {type: new GraphQLNonNull(GraphQLString)},
+      },
+      resolve: function(source, args) {
+        console.log("------------args",args);
+        return {};
+      }
+    },    
+  })
+});
 
 const executableSchema = new GraphQLSchema({
-  query: Query
+  query: Query,
+  mutation:Mutation
 }) 
 
 export default executableSchema;
